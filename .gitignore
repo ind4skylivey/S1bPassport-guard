@@ -1,1 +1,60 @@
+# Dependencies
+/vendor/
+composer.lock
+node_modules/
+
+# IDE & Editors
+/.idea/
+/.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Testing
+/.phpunit.cache/
+.phpunit.result.cache
+/coverage/
+/.phpunit/
+/build/
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+/storage/*.key
+
+# Logs & Debug
+*.log
+/storage/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+/.cache/
+*.cache
+
+# AI Tools
 .aider*
+.gemini/
+.cursor/
+.continue/
+
+# Misc
+*.bak
+*.tmp
+*.temp

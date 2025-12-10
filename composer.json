@@ -11,12 +11,11 @@
     "threat-detection"
   ],
   "type": "laravel-package",
-  "license": "MIT",
+  "license": "proprietary",
   "authors": [
     {
       "name": "Livey",
-      "email": "livey@s1b-team.com",
-      "organization": "S1b-Team",
+      "email": "ind4skylivey@proton.me",
       "homepage": "https://github.com/s1b-team"
     }
   ],
