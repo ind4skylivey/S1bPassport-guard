@@ -1,0 +1,52 @@
+{
+  "name": "s1b-team/s1b-passport-guard",
+  "description": "Advanced OAuth2 token monitoring & threat detection for Laravel Passport",
+  "keywords": [
+    "laravel",
+    "passport",
+    "oauth2",
+    "security",
+    "monitoring",
+    "cli",
+    "threat-detection"
+  ],
+  "type": "laravel-package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Livey",
+      "email": "livey@s1b-team.com",
+      "organization": "S1b-Team",
+      "homepage": "https://github.com/s1b-team"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^11.0",
+    "laravel/passport": "^13.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9.0",
+    "phpunit/phpunit": "^11.0"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "S1bTeam\\PassportGuard\\S1bPassportGuardServiceProvider"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "S1bTeam\\PassportGuard\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "S1bTeam\\PassportGuard\\Tests\\": "tests/"
+    }
+  }
+}

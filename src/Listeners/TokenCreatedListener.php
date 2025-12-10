@@ -20,7 +20,7 @@ class TokenCreatedListener
             ],
             [
                 'tokens_created' => DB::raw('tokens_created + 1'),
-                'avg_token_lifespan_hours' => DB::raw("AVG(avg_token_lifespan_hours)"),
+                'total_token_lifespan_hours' => DB::raw("total_token_lifespan_hours + $lifespanHours"),
             ]
         );
     }
