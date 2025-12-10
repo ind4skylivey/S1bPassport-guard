@@ -44,8 +44,20 @@ class S1bPassportGuardServiceProvider extends ServiceProvider
 
         if (config('s1b-passport-guard.enabled', true)) {
             // Listen to Passport events
-            Event::listen(AccessTokenCreated::class, TokenCreatedListener::class);
-            Event::listen(RefreshTokenCreated::class, TokenRefreshedListener::class);
+            Event::listen(
+                AccessTokenCreated::class,
+                TokenCreatedListener::class
+            );
+
+            Event::listen(
+                RefreshTokenCreated::class,
+                TokenRefreshedListener::class
+            );
+
+            Event::listen(
+                \S1bTeam\PassportGuard\Events\ThreatDetected::class,
+                \S1bTeam\PassportGuard\Listeners\SendThreatNotification::class
+            );
 
             // Observe Token model
             Token::observe(TokenObserver::class);

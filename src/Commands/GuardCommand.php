@@ -34,8 +34,11 @@ class GuardCommand extends Command
         $clientId = $this->option('hunt') ? (int) $this->option('hunt') : null;
         $userId = $this->option('user') ? (int) $this->option('user') : null;
 
-        if ($this->option('export') === 'csv') {
-            return $this->exportCsv($days, $clientId, $userId);
+        switch ($this->option('export')) {
+            case 'csv':
+                return $this->exportCsv($days, $clientId, $userId);
+            case 'json':
+                return $this->exportJson($days, $clientId, $userId);
         }
 
         if ($this->option('threats')) {
@@ -43,6 +46,18 @@ class GuardCommand extends Command
         }
 
         $this->showDashboard($days, $clientId, $userId);
+
+        return self::SUCCESS;
+    }
+
+    protected function exportJson(int $days, ?int $clientId = null, ?int $userId = null): int
+    {
+        $scan = $this->guard->scan($days, $clientId, $userId);
+
+        // Enrich with raw metrics data for detailed analysis
+        $scan['metrics'] = $this->guard->exportData($days, $clientId, $userId);
+
+        $this->output->write(json_encode($scan, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         return self::SUCCESS;
     }
