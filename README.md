@@ -1,4 +1,4 @@
-# S1b Passport Guard 🛡️
+# S1b Passport Guard 🛡
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Laravel](https://img.shields.io/badge/laravel-11.x-red)
@@ -16,6 +16,16 @@ Advanced OAuth2 token monitoring & threat detection for Laravel Passport. Monito
 -   **CSV Export:** Export analytics data to CSV for external analysis.
 -   **Expired Token Tracking:** Scheduled command to track token expirations.
 -   **Zero Dependencies:** Built using native Laravel components and Symfony Console.
+
+## 📘 Documentation & Context
+
+For a deeper dive into **why** this tool exists, real-world use cases, and security philosophy, read our **[Comprehensive Guide (GUIDE.md)](GUIDE.md)**.
+
+## 📋 Requirements
+
+-   **PHP:** 8.2 or higher
+-   **Laravel:** 11.0+
+-   **Extensions:** `ext-sodium` (Required for token encryption)
 
 ## 📦 Installation
 
