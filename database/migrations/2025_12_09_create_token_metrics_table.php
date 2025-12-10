@@ -18,9 +18,11 @@ return new class extends Migration
             $table->unsignedInteger('tokens_refreshed')->default(0);
             $table->unsignedInteger('tokens_expired')->default(0);
             $table->unsignedInteger('failed_requests')->default(0);
-            $table->decimal('total_token_lifespan_hours', 10, 4)->default(0);
+            $table->decimal('avg_token_lifespan_hours', 8, 2)->nullable();
             $table->timestamps();
 
+            // Composite index for faster aggregations and filtering
+            $table->index(['client_id', 'user_id', 'date']);
             $table->unique(['client_id', 'user_id', 'date'], 'client_user_date');
             $table->index('client_id');
             $table->index('user_id');

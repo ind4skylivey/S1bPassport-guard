@@ -86,12 +86,21 @@ class ThreatDetectorService
             if ($baseline > 0) {
                 $increase = ($metric->tokens_created - $baseline) / $baseline;
                 if ($increase >= $this->creationSpikeThreshold) {
-                    $anomalies[] = sprintf(
+                    $message = sprintf(
                         "Creation spike +%d%% on %s (Client #%d: %s)",
                         round($increase * 100),
                         $metric->date->format('Y-m-d'),
                         $metric->client_id,
                         $metric->client->name ?? 'Unknown'
+                    );
+                    $anomalies[] = $message;
+
+                    \S1bTeam\PassportGuard\Events\ThreatDetected::dispatch(
+                        'creation_spike',
+                        $message,
+                        $metric->client_id,
+                        $metric->user_id,
+                        ['increase_pct' => round($increase * 100)]
                     );
                 }
             } elseif ($metric->tokens_created > 50) {
@@ -135,11 +144,20 @@ class ThreatDetectorService
         $metrics = $query->get();
 
         foreach ($metrics as $metric) {
-            $anomalies[] = sprintf(
+            $message = sprintf(
                 "Unusual refreshes on %s (User #%d: %d/day)",
                 $metric->date->format('Y-m-d'),
                 $metric->user_id ?? 0,
                 $metric->tokens_refreshed
+            );
+            $anomalies[] = $message;
+
+            \S1bTeam\PassportGuard\Events\ThreatDetected::dispatch(
+                'refresh_anomaly',
+                $message,
+                $metric->client_id,
+                $metric->user_id,
+                ['count' => $metric->tokens_refreshed]
             );
         }
 

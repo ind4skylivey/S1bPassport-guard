@@ -217,9 +217,19 @@ composer install
 composer test
 ```
 
-## 📄 License
+## �️ Roadmap
 
-Proprietary License. See [LICENSE](LICENSE) for details. All rights reserved.
+See our [ROADMAP.md](ROADMAP.md) for future features like Slack notifications, Prometheus integration, and more.
+
+## �📄 License
+
+**Source Available License** (Proprietary).
+
+-   ✅ **Allowed:** Use in personal or commercial projects.
+-   ✅ **Allowed:** Modify for internal use.
+-   ❌ **Prohibited:** Redistribute, resell, or copy the source code.
+
+See [LICENSE](LICENSE) for full details. All rights reserved.
 
 ## 🤝 Contributing
 
