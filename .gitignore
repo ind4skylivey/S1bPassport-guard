@@ -48,12 +48,6 @@ yarn-error.log*
 /.cache/
 *.cache
 
-# AI Tools
-.aider*
-.gemini/
-.cursor/
-.continue/
-
 # Misc
 *.bak
 *.tmp
