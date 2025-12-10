@@ -2,10 +2,13 @@
 
 # S1b Passport Guard 🛡
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Laravel](https://img.shields.io/badge/laravel-11.x-red)
-![PHP](https://img.shields.io/badge/php-8.2+-purple)
+![Laravel](https://img.shields.io/badge/Laravel-11.x-red)
+![PHP](https://img.shields.io/badge/PHP-8.2+-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![OAuth](https://img.shields.io/badge/OAuth-2.0-orange)
 [![Latest Version](https://img.shields.io/packagist/v/s1b-team/s1b-passport-guard)](https://packagist.org/packages/s1b-team/s1b-passport-guard)
+
+**Keywords:** Laravel Passport monitoring, OAuth token analytics, Laravel security, API token management, Laravel Passport dashboard, OAuth threat detection, token lifecycle tracking, Laravel security audit
 
 Advanced OAuth2 token monitoring & threat detection for Laravel Passport. Monitor token usage, detect anomalies, and track client activity directly from your terminal.
 
