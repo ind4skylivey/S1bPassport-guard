@@ -1,3 +1,5 @@
+![S1b Passport Guard Banner](.github/assets/banner.png)
+
 # S1b Passport Guard 🛡
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
