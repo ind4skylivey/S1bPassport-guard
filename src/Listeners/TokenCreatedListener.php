@@ -3,6 +3,7 @@
 namespace S1bTeam\PassportGuard\Listeners;
 
 use Laravel\Passport\Events\AccessTokenCreated;
+use Laravel\Passport\Events\AccessTokenRefreshed;
 use S1bTeam\PassportGuard\Models\OauthTokenMetric;
 use Illuminate\Support\Facades\DB;
 
@@ -10,6 +11,7 @@ class TokenCreatedListener
 {
     public function handle(AccessTokenCreated $event): void
     {
+        $lifespanHours = $event->accessToken->expires_at->diffInHours($event->accessToken->created_at);
         OauthTokenMetric::updateOrCreate(
             [
                 'client_id' => $event->clientId,
@@ -17,7 +19,8 @@ class TokenCreatedListener
                 'date' => now()->toDateString(),
             ],
             [
-                'tokens_created' => DB::raw('tokens_created + 1')
+                'tokens_created' => DB::raw('tokens_created + 1'),
+                'avg_token_lifespan_hours' => DB::raw("AVG(avg_token_lifespan_hours)"),
             ]
         );
     }
