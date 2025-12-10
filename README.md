@@ -86,6 +86,38 @@ For a deeper dive into **why** this tool exists, real-world use cases, and secur
     $schedule->command('s1b:track-expired')->daily();
     ```
 
+### 🍎 Mac OS Setup
+
+1.  **Install PHP 8.2+ & Composer via Homebrew:**
+
+    ```bash
+    brew install php@8.2
+    brew install composer
+    ```
+
+2.  **Verify `sodium` extension (Required):**
+
+    ```bash
+    php -m | grep sodium
+    # If missing: brew install libsodium
+    ```
+
+3.  **Install in your Laravel Project:**
+
+    ```bash
+    cd your-laravel-project
+    composer require s1b-team/s1b-passport-guard
+    php artisan vendor:publish --provider="S1bTeam\\PassportGuard\\S1bPassportGuardServiceProvider"
+    php artisan migrate
+    php artisan s1b:guard
+    ```
+
+> **⚠️ Important Note:**
+>
+> -   ❌ This is **NOT** a standalone CLI tool (e.g., `brew install s1b-passport-guard`).
+> -   ✅ It **DOES** work on Mac within Laravel projects.
+> -   ✅ It uses **Composer** (PHP package manager), not Homebrew for installation.
+
 ## 🛠 Usage
 
 ### View General Analytics Dashboard
